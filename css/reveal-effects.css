@@ -1,0 +1,329 @@
+/* ===================================
+   REVEAL EFFECTS
+   Universal Scroll Animations
+   =================================== */
+
+/* ===================================
+   BASE REVEAL CLASSES
+   =================================== */
+
+/* Fade In */
+.fade-reveal {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-reveal.revealed {
+    opacity: 1;
+}
+
+/* Slide Up */
+.slide-up-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-up-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide Down */
+.slide-down-reveal {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-down-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide Left */
+.slide-left-reveal {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-left-reveal.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide Right */
+.slide-right-reveal {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-right-reveal.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale In */
+.scale-reveal {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-reveal.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Blur Reveal */
+.blur-reveal {
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-reveal.revealed {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Rotate Reveal */
+.rotate-reveal {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rotate-reveal.revealed {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* ===================================
+   STAGGER DELAY CLASSES
+   =================================== */
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+.delay-8 { transition-delay: 0.8s; }
+
+/* ===================================
+   KEYFRAME ANIMATIONS
+   =================================== */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale In */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Zoom In */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===================================
+   ANIMATION CLASSES
+   =================================== */
+
+.animate-fadeIn {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fadeInDown {
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.animate-fadeInLeft {
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+.animate-fadeInRight {
+    animation: fadeInRight 0.8s ease forwards;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.8s ease forwards;
+}
+
+.animate-zoomIn {
+    animation: zoomIn 0.8s ease forwards;
+}
+
+.animate-bounceIn {
+    animation: bounceIn 0.8s ease forwards;
+}
+
+/* ===================================
+   SPEED MODIFIERS
+   =================================== */
+
+.animate-fast {
+    animation-duration: 0.4s !important;
+    transition-duration: 0.4s !important;
+}
+
+.animate-slow {
+    animation-duration: 1.2s !important;
+    transition-duration: 1.2s !important;
+}
+
+.animate-slower {
+    animation-duration: 1.6s !important;
+    transition-duration: 1.6s !important;
+}
+
+/* ===================================
+   REDUCED MOTION SUPPORT
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-reveal,
+    .slide-up-reveal,
+    .slide-down-reveal,
+    .slide-left-reveal,
+    .slide-right-reveal,
+    .scale-reveal,
+    .blur-reveal,
+    .rotate-reveal {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .fade-reveal.revealed,
+    .slide-up-reveal.revealed,
+    .slide-down-reveal.revealed,
+    .slide-left-reveal.revealed,
+    .slide-right-reveal.revealed,
+    .scale-reveal.revealed,
+    .blur-reveal.revealed,
+    .rotate-reveal.revealed {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+/* ===================================
+   UTILITY CLASSES
+   =================================== */
+
+/* Hide initially */
+.reveal-hidden {
+    opacity: 0;
+}
+
+/* Show */
+.reveal-visible {
+    opacity: 1;
+}
+
+/* No transition */
+.no-transition {
+    transition: none !important;
+}
+
+/* Smooth transition */
+.smooth-transition {
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,896 @@
+/* ===================================
+   SERVICES SECTION - DISNEY-STYLE CARDS
+   IMAGE PROJECTING OUT OF BOX
+   =================================== */
+
+:root {
+    --accent-red: #c41e3a;
+    --text-primary: #2c2c2c;
+    --text-secondary: #6b6b6b;
+    --bg-primary: #fdedf1;
+}
+
+/* ===================================
+   MAIN WRAPPER - HERO STYLE
+   =================================== */
+.services-horizontal-wrapper {
+    position: relative;
+    background: linear-gradient(135deg, #fdedf1 0%, #fff5f7 100%);
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Animated Grid Background - Like Hero */
+.services-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.services-grid-line {
+    border-right: 1px solid var(--text-primary);
+    position: relative;
+}
+
+.services-grid-line:last-child {
+    border-right: none;
+}
+
+.services-grid-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(180deg, var(--accent-red) 0%, transparent 100%);
+    animation: gridFlow 4s ease-in-out infinite;
+}
+
+.services-grid-line:nth-child(2)::before {
+    animation-delay: 1s;
+}
+
+.services-grid-line:nth-child(3)::before {
+    animation-delay: 2s;
+}
+
+.services-grid-line:nth-child(4)::before {
+    animation-delay: 3s;
+}
+
+@keyframes gridFlow {
+    0%, 100% {
+        height: 0;
+        opacity: 0;
+    }
+    50% {
+        height: 100%;
+        opacity: 0.3;
+    }
+}
+
+/* Gradient Orbs - Like Hero */
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    animation: floatOrb 20s ease-in-out infinite;
+    z-index: 0;
+}
+
+.services-orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #c41e3a 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    animation-delay: 0s;
+}
+
+.services-orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ff0055 0%, transparent 70%);
+    bottom: -150px;
+    left: -150px;
+    animation-delay: 7s;
+}
+
+.services-orb-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #ff6b9d 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    animation-delay: 14s;
+}
+
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(100px, -100px) scale(1.1);
+    }
+    50% {
+        transform: translate(-50px, 50px) scale(0.9);
+    }
+    75% {
+        transform: translate(75px, 75px) scale(1.05);
+    }
+}
+
+.services-horizontal-container {
+    min-height: 100vh;
+    padding: 100px 0;
+    position: relative;
+    z-index: 3;
+}
+
+/* ===================================
+   SECTION HEADER - HERO STYLE
+   =================================== */
+.services-header-sticky {
+    max-width: 1600px;
+    margin: 0 auto 80px;
+    padding: 0 5%;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(196, 30, 58, 0.3);
+    border-radius: 50px;
+    width: fit-content;
+    margin: 0 auto 30px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.badge-icon {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+.badge-text {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.services-main-title {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.title-line {
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.title-word {
+    display: inline-block;
+    animation: slideUpWord 1s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.title-line:nth-child(1) .title-word {
+    animation-delay: 0.2s;
+}
+
+.title-line:nth-child(2) .title-word {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideUpWord {
+    from {
+        transform: translateY(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.title-gradient {
+    background: linear-gradient(135deg, var(--accent-red) 0%, #ff0055 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.services-subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    animation: fadeIn 1s ease-out 0.8s backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.scroll-hint-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-red) 0%, transparent 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-hint-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: var(--accent-red);
+    animation: scrollIndicator 2s ease-in-out infinite;
+}
+
+@keyframes scrollIndicator {
+    0% {
+        transform: translateX(-30px);
+    }
+    100% {
+        transform: translateX(90px);
+    }
+}
+
+/* ===================================
+   HORIZONTAL SCROLL SECTION
+   =================================== */
+.services-pin-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    will-change: transform;
+}
+
+.services-track {
+    display: flex;
+    gap: 40px;
+    padding: 0 5%;
+    will-change: transform;
+}
+
+/* ===================================
+   SERVICE CARDS - IMAGE PROJECTING OUT
+   =================================== */
+.service-card-advanced {
+    flex: 0 0 400px;
+    width: 400px;
+    height: auto;
+    min-height: 520px;
+    background: white;
+    border-radius: 32px;
+    position: relative;
+    overflow: visible; /* ✅ CRITICAL - Allow image to overflow */
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px; /* ✅ Space for projecting image */
+}
+
+.service-card-advanced:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 
+        0 30px 70px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(196, 30, 58, 0.3);
+}
+
+/* Card Number Badge */
+.card-number-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    z-index: 15; /* ✅ Above everything */
+    box-shadow: 0 8px 24px rgba(196, 30, 58, 0.4);
+    transition: all 0.4s ease;
+}
+
+.service-card-advanced:hover .card-number-badge {
+    transform: rotate(360deg) scale(1.1);
+    background: #ff0055;
+}
+
+/* ===================================
+   IMAGE CONTAINER - PROJECTING OUT
+   =================================== */
+.card-image-container {
+    position: absolute;
+    top: -100px; /* ✅ High above card */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 180px; /* ✅ Just colored background height */
+    border-radius: 24px;
+    overflow: visible; /* ✅ CRITICAL - Allow character to break out */
+    z-index: 5;
+}
+
+.card-bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--solid-color);
+    border-radius: 24px;
+    transition: transform 0.6s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-card-advanced:hover .card-bg-gradient {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Solid Color Variations */
+.gradient-animation {
+    --solid-color: #c41e3a;
+}
+
+.gradient-digital {
+    --solid-color: #667eea;
+}
+
+.gradient-web {
+    --solid-color: #ff9d5c;
+}
+
+.gradient-brand {
+    --solid-color: #4facfe;
+}
+
+.gradient-video {
+    --solid-color: #43e97b;
+}
+
+/* Pattern Overlay */
+.card-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+/* ===================================
+   CHARACTER IMAGE - PROJECTING OUT OF BOX
+   =================================== */
+.card-service-icon {
+    position: absolute;
+    bottom: -90px; /* ✅ PROJECTS WAY BELOW colored box */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%; /* ✅ Larger than container to project out */
+    max-width: 250px;
+    height: auto;
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.35));
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10; /* ✅ On top of everything */
+    animation: floatCharacter 6s ease-in-out infinite;
+}
+
+@keyframes floatCharacter {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-15px);
+    }
+}
+
+.service-card-advanced:hover .card-service-icon {
+    transform: translateX(-50%) translateY(-20px) scale(1.1);
+}
+
+/* ===================================
+   CARD CONTENT - ADJUSTED FOR PROJECTING IMAGE
+   =================================== */
+.card-content-area {
+    padding: 150px 30px 30px; /* ✅ Extra top padding for projecting image */
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-category {
+    display: inline-block;
+    padding: 5px 14px;
+    background: rgba(196, 30, 58, 0.1);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-red);
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.card-title-main {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+}
+
+/* Features Tags */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.feature-tag {
+    padding: 5px 12px;
+    background: rgba(44, 44, 44, 0.05);
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.feature-tag:hover {
+    background: var(--accent-red);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* CTA Button - Hero Style */
+.card-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 
+        0 0 20px rgba(196, 30, 58, 0.4),
+        0 10px 30px rgba(196, 30, 58, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    margin-top: auto;
+    width: fit-content;
+}
+
+.card-cta-button .btn-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff0055 0%, #c41e3a 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.card-cta-button .btn-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-cta-button:hover .btn-bg {
+    opacity: 1;
+}
+
+.card-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 0 30px rgba(255, 0, 85, 0.6),
+        0 15px 40px rgba(196, 30, 58, 0.4);
+}
+
+.btn-arrow {
+    transition: transform 0.3s ease;
+}
+
+.card-cta-button:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* ===================================
+   PROGRESS INDICATOR
+   =================================== */
+.scroll-progress-track {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(44, 44, 44, 0.2);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.progress-dot.active {
+    background: var(--accent-red);
+    transform: scale(1.5);
+    box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.2);
+}
+
+.progress-dot:hover {
+    background: var(--accent-red);
+    transform: scale(1.3);
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 1200px) {
+    .service-card-advanced {
+        flex: 0 0 360px;
+        width: 360px;
+        margin-top: 110px;
+    }
+    
+    .card-image-container {
+        height: 170px;
+        top: -90px;
+    }
+    
+    .card-service-icon {
+        bottom: -80px;
+        width: 80%;
+        max-width: 220px;
+    }
+    
+    .card-content-area {
+        padding: 140px 25px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-horizontal-container {
+        padding: 60px 0;
+    }
+    
+    .services-main-title {
+        font-size: 48px;
+    }
+    
+    .services-track {
+        gap: 30px;
+        padding: 0 20px;
+    }
+    
+    .service-card-advanced {
+        flex: 0 0 300px;
+        width: 300px;
+        margin-top: 100px;
+    }
+    
+    .card-image-container {
+        height: 150px;
+        top: -80px;
+    }
+    
+    .card-service-icon {
+        bottom: -70px;
+        width: 75%;
+        max-width: 180px;
+    }
+    
+    .card-content-area {
+        padding: 130px 20px 20px;
+    }
+    
+    .card-title-main {
+        font-size: 22px;
+    }
+    
+    .card-description {
+        font-size: 13px;
+    }
+    
+    .scroll-progress-track {
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card-advanced {
+        flex: 0 0 280px;
+        width: 280px;
+        margin-top: 90px;
+    }
+    
+    .card-image-container {
+        height: 130px;
+        top: -70px;
+    }
+    
+    .card-service-icon {
+        bottom: -60px;
+        width: 70%;
+        max-width: 160px;
+    }
+    
+    .card-content-area {
+        padding: 120px 20px 20px;
+    }
+    
+    .card-title-main {
+        font-size: 20px;
+    }
+    
+    .card-number-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* ===================================
+   MOBILE SWIPER MODE
+   =================================== */
+
+/* Mobile swiper container */
+@media screen and (max-width: 768px) {
+    
+    /* Enable Swiper on mobile */
+    .services-horizontal-wrapper.mobile-swiper-mode {
+        overflow: visible !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    .mobile-swiper-mode .services-horizontal-container {
+        padding: 60px 0 100px;
+    }
+
+    .mobile-swiper-mode .services-pin-container {
+        overflow: visible !important;
+        height: auto !important;
+        position: relative;
+    }
+
+    /* Swiper wrapper on mobile */
+    .mobile-swiper-mode .services-track {
+        display: flex !important;
+        flex-direction: row !important;
+        transform: none !important;
+        padding: 0 20px !important;
+        height: auto !important;
+        gap: 20px !important;
+    }
+
+    /* Ensure slides are visible and swipeable */
+    .mobile-swiper-mode .service-card-advanced {
+        flex-shrink: 0;
+        width: 85vw;
+        max-width: 320px;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* Hide desktop scroll hint on mobile */
+    .mobile-swiper-mode .scroll-hint {
+        display: none;
+    }
+
+    /* Adjust header spacing */
+    .mobile-swiper-mode .services-header-sticky {
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+    }
+
+    /* Progress dots on mobile */
+    .scroll-progress-track {
+        position: fixed;
+        bottom: 20px !important;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 12px 20px;
+        border-radius: 50px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-swiper-mode .progress-dot {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-swiper-mode .progress-dot:hover {
+        transform: scale(1.2);
+    }
+
+    /* Card adjustments for mobile swiper */
+    .mobile-swiper-mode .service-card-advanced {
+        margin-top: 100px;
+    }
+
+    .mobile-swiper-mode .card-image-container {
+        height: 140px;
+        top: -75px;
+    }
+
+    .mobile-swiper-mode .card-service-icon {
+        bottom: -65px;
+        width: 70%;
+        max-width: 170px;
+    }
+
+    .mobile-swiper-mode .card-content-area {
+        padding: 125px 20px 20px;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .mobile-swiper-mode .service-card-advanced {
+        width: 82vw;
+        max-width: 280px;
+        margin-top: 90px;
+    }
+
+    .mobile-swiper-mode .card-image-container {
+        height: 130px;
+        top: -70px;
+    }
+
+    .mobile-swiper-mode .card-service-icon {
+        bottom: -60px;
+        width: 70%;
+        max-width: 160px;
+    }
+
+    .mobile-swiper-mode .card-content-area {
+        padding: 120px 18px 18px;
+    }
+
+    .scroll-progress-track {
+        bottom: 15px !important;
+        padding: 10px 18px;
+    }
+}
+
+/* Swiper slide wrapper compatibility */
+.swiper-wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+
+/* Ensure Swiper container works properly */
+.services-pin-container.swiper {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+

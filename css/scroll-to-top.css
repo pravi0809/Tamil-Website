@@ -1,0 +1,295 @@
+/* ===================================
+   CUSTOM ROCKET SCROLL TO TOP
+   =================================== */
+
+.scroll-top-rocket {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px) scale(0.5);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 9999;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Visible state */
+.scroll-top-rocket.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    animation: rocketFloat 3s ease-in-out infinite;
+}
+
+/* Hover effect */
+.scroll-top-rocket:hover {
+    transform: translateY(-8px) scale(1.1);
+}
+
+.scroll-top-rocket.visible:hover {
+    animation: rocketFloat 0.6s ease-in-out infinite;
+}
+
+/* Active state */
+.scroll-top-rocket:active {
+    transform: scale(0.95);
+}
+
+/* Launching state - SLOWER & STRAIGHT UP */
+.scroll-top-rocket.launching {
+    animation: rocketLaunchStraight 2.5s ease-in forwards !important;
+}
+
+/* Rocket Image - LARGER SIZE */
+.rocket-img {
+    width: 150%;
+    height: 150%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.scroll-top-rocket:hover .rocket-img {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 6px 12px rgba(196, 30, 58, 0.4));
+}
+
+.scroll-top-rocket.launching .rocket-img {
+    filter: drop-shadow(0 10px 20px rgba(255, 100, 0, 0.6));
+}
+
+/* Flames - POSITIONED AT BOTTOM BELOW ROCKET */
+.flames {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%) scaleY(-1);
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 3px 6px rgba(255, 100, 0, 0.7));
+}
+
+.scroll-top-rocket:hover .flames {
+    opacity: 1;
+    animation: flamesFlicker 0.2s infinite;
+    transform: translateX(-50%) scaleY(-1);
+}
+
+.scroll-top-rocket.launching .flames {
+    opacity: 1;
+    animation: flamesBlastSlow 2.3s ease-out forwards;
+}
+
+/* Glow effect on hover */
+.scroll-top-rocket.visible::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 30, 58, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.scroll-top-rocket:hover::before {
+    opacity: 1;
+    animation: pulseGlow 2s ease-out infinite;
+}
+
+/* ===================================
+   ANIMATIONS - SLOWER
+   =================================== */
+
+/* Gentle floating - SLOWER */
+@keyframes rocketFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-12px) scale(1);
+    }
+}
+
+/* Launch STRAIGHT UP - MUCH SLOWER */
+@keyframes rocketLaunchStraight {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    8% {
+        transform: translateY(-15px) scale(1.03);
+        opacity: 1;
+    }
+    15% {
+        transform: translateY(-40px) scale(1.05);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-100px) scale(1.08);
+        opacity: 1;
+    }
+    40% {
+        transform: translateY(-250px) scale(1.1);
+        opacity: 1;
+    }
+    55% {
+        transform: translateY(-450px) scale(1.05);
+        opacity: 0.95;
+    }
+    70% {
+        transform: translateY(-700px) scale(0.9);
+        opacity: 0.8;
+    }
+    85% {
+        transform: translateY(-1000px) scale(0.6);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-1500px) scale(0.2);
+        opacity: 0;
+    }
+}
+
+/* Flames flickering - FOR IMAGE & INVERTED */
+@keyframes flamesFlicker {
+    0%, 100% {
+        opacity: 1;
+        transform: translateX(-50%) scaleY(-1) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scaleY(-1) scale(1.1);
+    }
+}
+
+/* Flames blast during launch - POSITIONED BELOW */
+@keyframes flamesBlastSlow {
+    0% {
+        opacity: 1;
+        width: 70px;
+        height: 70px;
+        bottom: -40px;
+        transform: translateX(-50%) scaleY(-1);
+    }
+    15% {
+        opacity: 1;
+        width: 85px;
+        height: 85px;
+        bottom: -45px;
+        transform: translateX(-50%) scaleY(-1);
+    }
+    30% {
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+        bottom: -52px;
+        transform: translateX(-50%) scaleY(-1);
+    }
+    50% {
+        opacity: 1;
+        width: 120px;
+        height: 120px;
+        bottom: -62px;
+        transform: translateX(-50%) scaleY(-1);
+    }
+    70% {
+        opacity: 0.8;
+        width: 140px;
+        height: 140px;
+        bottom: -74px;
+        transform: translateX(-50%) scaleY(-1);
+    }
+    85% {
+        opacity: 0.5;
+        width: 160px;
+        height: 160px;
+        bottom: -86px;
+        transform: translateX(-50%) scaleY(-1);
+    }
+    100% {
+        opacity: 0;
+        width: 180px;
+        height: 180px;
+        bottom: -98px;
+        transform: translateX(-50%) scaleY(-1);
+    }
+}
+
+/* Pulse glow - SLOWER */
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.3;
+    }
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+
+@media (max-width: 768px) {
+    .scroll-top-rocket {
+        bottom: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .flames {
+        width: 55px;
+        height: 55px;
+        bottom: -35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .scroll-top-rocket {
+        bottom: 15px;
+        right: 15px;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .flames {
+        width: 48px;
+        height: 48px;
+        bottom: -30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-top-rocket {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .flames {
+        width: 42px;
+        height: 42px;
+        bottom: -25px;
+    }
+}
+
+/* ===================================
+   END OF FILE
+   =================================== */

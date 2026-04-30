@@ -1,0 +1,544 @@
+/* ===================================
+   ABOUT SECTION - ASYMMETRIC GRID LAYOUT
+   =================================== */
+
+.about-section {
+    position: relative;
+    background: linear-gradient(135deg, #fdedf1 0%, #fff5f7 100%);
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 120px 0;
+}
+
+/* Section Connector Line */
+.section-connector {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, var(--accent-red) 0%, transparent 100%);
+    z-index: 10;
+    animation: lineGrow 1s ease-out;
+}
+
+@keyframes lineGrow {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100px;
+    }
+}
+
+/* Animated Grid Background */
+.about-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.about-grid-line {
+    border-right: 1px solid var(--text-primary);
+    position: relative;
+}
+
+.about-grid-line:last-child {
+    border-right: none;
+}
+
+.about-grid-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(180deg, var(--accent-red) 0%, transparent 100%);
+    animation: gridFlow 4s ease-in-out infinite;
+}
+
+.about-grid-line:nth-child(2)::before {
+    animation-delay: 1s;
+}
+
+.about-grid-line:nth-child(3)::before {
+    animation-delay: 2s;
+}
+
+.about-grid-line:nth-child(4)::before {
+    animation-delay: 3s;
+}
+
+/* Gradient Orbs */
+.about-orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #c41e3a 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+}
+
+.about-orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ff0055 0%, transparent 70%);
+    bottom: -150px;
+    right: -150px;
+}
+
+.about-orb-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #ff6b9d 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+}
+
+/* Container */
+.about-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+    position: relative;
+    z-index: 3;
+}
+
+/* ===================================
+   SECTION HEADER
+   =================================== */
+.about-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.about-title {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.about-subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   ASYMMETRIC GRID LAYOUT
+   =================================== */
+.about-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* LEFT COLUMN - Image Cards */
+.about-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-image-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.about-image-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.about-image-card:hover .about-img {
+    transform: scale(1.05);
+}
+
+/* Team Card */
+.team-card {
+    height: 400px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.overlay-badge {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Experience Card */
+.experience-card {
+    height: 300px;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+}
+
+.experience-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #c41e3a;
+}
+
+.badge-number {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 10px;
+    background:#c41e3a;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge-label {
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* RIGHT COLUMN - Info Card */
+.about-right-column {
+    display: flex;
+}
+
+.about-info-card {
+    background: #fef0f3;
+    border-radius: 24px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.info-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-red);
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.info-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.info-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-red);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.info-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--accent-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    width: fit-content;
+    box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+    transition: all 0.4s ease;
+}
+
+.info-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(196, 30, 58, 0.5);
+}
+
+.btn-arrow {
+    transition: transform 0.3s ease;
+}
+
+.info-cta-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* ===================================
+   BOTTOM GRID - Mission, Vision, History
+   =================================== */
+.about-bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.bottom-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.6s ease;
+}
+
+.bottom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.card-label {
+    display: block;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--accent-red);
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Featured History Card */
+.history-card.featured {
+    background: linear-gradient(135deg, var(--accent-red) 0%, #9d1729 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.card-text-light {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+}
+
+.card-link {
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+    transform: translateX(5px);
+}
+
+/* ===================================
+   LARGE CTA CARD
+   =================================== */
+.about-large-cta {
+    position: relative;
+    background: #3d3d3d;
+    border-radius: 32px;
+    overflow: hidden;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.cta-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.cta-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px;
+    max-width: 700px;
+    color: white;
+}
+
+.cta-main-title {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.cta-description {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.95;
+    margin-bottom: 40px;
+}
+
+.cta-contact-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--accent-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(196, 30, 58, 0.5);
+    transition: all 0.4s ease;
+}
+
+.cta-contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(196, 30, 58, 0.6);
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 1200px) {
+    .about-grid-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 80px 0;
+    }
+    
+    .about-title {
+        font-size: 48px;
+    }
+    
+    .about-info-card {
+        padding: 35px;
+    }
+    
+    .info-title {
+        font-size: 28px;
+    }
+    
+    .bottom-card {
+        padding: 30px;
+    }
+    
+    .cta-content {
+        padding: 50px 30px;
+    }
+    
+    .cta-main-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-card {
+        height: 300px;
+    }
+    
+    .experience-card {
+        height: 250px;
+    }
+    
+    .badge-number {
+        font-size: 56px;
+    }
+    
+    .info-features {
+        gap: 12px;
+    }
+}

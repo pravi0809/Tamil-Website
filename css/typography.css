@@ -1,0 +1,115 @@
+/* ===================================
+   TYPOGRAPHY SPACING FIX
+   =================================== */
+
+/* Section Titles - More Breathing Room */
+.section-title,
+.services-title,
+.projects-title,
+.testimonials-title,
+.contact-title,
+.hero-title {
+    letter-spacing: -1px !important; /* Less tight */
+}
+
+/* Outline Text - Better spacing */
+.outline-text {
+    letter-spacing: 0px !important; /* Remove negative spacing */
+}
+
+/* Section Badge Text */
+.section-badge .badge-text,
+.hero-badge .badge-text {
+    letter-spacing: 2px !important; /* More open */
+}
+
+/* Navigation Links */
+.nav-link {
+    letter-spacing: 0.3px !important; /* Slightly more open */
+}
+
+/* Button Text */
+.btn-primary,
+.btn-secondary,
+.cta-button,
+.submit-btn,
+.submit-btn-gradient {
+    letter-spacing: 0.8px !important; /* More readable */
+}
+
+/* Service Cards */
+.service-card h3,
+.service-title {
+    letter-spacing: -0.5px !important; /* Less cramped */
+}
+
+/* Project Cards */
+.project-card h3,
+.project-title {
+    letter-spacing: -0.5px !important;
+}
+
+/* Footer Links */
+.footer-links a {
+    letter-spacing: 0.3px !important;
+}
+
+/* Stats Labels */
+.stat-label {
+    letter-spacing: 1.5px !important; /* More breathing room */
+}
+
+/* Tags */
+.tag,
+.service-tags .tag {
+    letter-spacing: 0.5px !important; /* Less tight */
+}
+
+/* Form Labels */
+.form-group label {
+    letter-spacing: 0.8px !important; /* More readable */
+}
+
+/* Headings General Fix */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.5px !important; /* Less cramped for all headings */
+}
+
+/* Paragraph Text - Better Readability */
+p {
+    letter-spacing: 0.3px !important; /* Slightly more open */
+    line-height: 1.7 !important; /* Better line spacing too */
+}
+
+/* Logo Text */
+.logo-text {
+    letter-spacing: 0px !important; /* Remove negative spacing */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .section-title,
+    .services-title,
+    .projects-title,
+    .testimonials-title,
+    .contact-title,
+    .hero-title {
+        letter-spacing: -0.5px !important; /* Even less tight on mobile */
+    }
+    
+    h1, h2, h3 {
+        letter-spacing: 0px !important; /* Normal spacing on mobile */
+    }
+    
+    p {
+        letter-spacing: 0.2px !important;
+        line-height: 1.6 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title,
+    .hero-title {
+        letter-spacing: 0px !important; /* No negative spacing on small screens */
+    }
+}
